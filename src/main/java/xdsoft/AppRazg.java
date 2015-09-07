@@ -70,7 +70,7 @@ public class AppRazg {
 		InputSource is = new InputSource(new StringReader(responceSTR));
 		Document doc = builder.parse(is);
 
-		ArrayList<Object> hbaseSet = new ArrayList<>();
+		ArrayList<HashMap<String, String>> hbaseSet = new ArrayList<>();
 
 		NodeList talkList = doc.getElementsByTagName("wpt");
 		for (int i = 0; i < talkList.getLength(); i++) {

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -74,7 +75,7 @@ public class YablogsExctractor {
 
 				String sourceXML = EntityUtils.toString(resp.getEntity(), "UTF-8");
 
-				ArrayList<Object> recordsToHBase = BlogXMLParser.getBlogFromXML(sourceXML);
+				ArrayList<HashMap<String, String>> recordsToHBase = BlogXMLParser.getBlogFromXML(sourceXML);
 				if (!recordsToHBase.isEmpty())
 					HBaseWriter.WriteToHBase("yablogs", "yablogs", "link", recordsToHBase);
 				else

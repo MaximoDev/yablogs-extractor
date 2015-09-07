@@ -37,7 +37,7 @@ public class HBaseWriter {
 	 * 
 	 */
 	@SuppressWarnings({ "deprecation", "unchecked" })
-	public static void WriteToHBase(String tableName, String colFamily, String keyName, ArrayList<Object> records)
+	public static void WriteToHBase(String tableName, String colFamily, String keyName, ArrayList<HashMap<String, String>> records)
 			throws IOException {
 
 		Configuration config = HBaseConfiguration.create();

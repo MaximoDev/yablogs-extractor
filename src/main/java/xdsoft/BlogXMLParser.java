@@ -17,10 +17,10 @@ import org.xml.sax.SAXException;
 
 public class BlogXMLParser {
 
-	public static ArrayList<Object> getBlogFromXML(String source)
+	public static ArrayList<HashMap<String,String>> getBlogFromXML(String source)
 			throws ParserConfigurationException, SAXException, IOException {
 
-		ArrayList<Object> records = new ArrayList<>();
+		ArrayList<HashMap<String, String>> records = new ArrayList<>();
 
 		DocumentBuilderFactory factory;
 		DocumentBuilder documentBuilder;
@@ -45,8 +45,8 @@ public class BlogXMLParser {
 
 			System.out.println(nodeList.getLength() + " - " + nodeList.toString());
 			Element elem = (Element) nodeList.item(i);
-
-			// link
+			
+			// link - ключевое поле
 			if ((elem.getElementsByTagName("link").getLength() == 0))
 				continue;
 
